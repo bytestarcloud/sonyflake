@@ -105,7 +105,7 @@ func (sf *Sonyflake) NextID() (uint64, error) {
 	return sf.toID()
 }
 
-const sonyflakeTimeUnit = 1e7 // nsec, i.e. 10 msec
+const sonyflakeTimeUnit = 2e7 // nsec, i.e. 10 msec
 
 func toSonyflakeTime(t time.Time) int64 {
 	return t.UTC().UnixNano() / sonyflakeTimeUnit
@@ -116,7 +116,7 @@ func currentElapsedTime(startTime int64) int64 {
 }
 
 func sleepTime(overtime int64) time.Duration {
-	return time.Duration(overtime)*10*time.Millisecond -
+	return time.Duration(overtime)*5*time.Millisecond -
 		time.Duration(time.Now().UTC().UnixNano()%sonyflakeTimeUnit)*time.Nanosecond
 }
 

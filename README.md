@@ -17,7 +17,7 @@ Installation
 ------------
 
 ```
-go get github.com/sony/sonyflake
+go get github.com/bytestarcloud/sonyflake
 ```
 
 Usage
